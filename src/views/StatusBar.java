@@ -24,7 +24,7 @@ import javax.swing.border.BevelBorder;
 
 public class StatusBar extends JPanel {
 
-    JLabel statusLabel;
+    public JLabel statusLabel;
 
     public StatusBar(int width) {   
 
@@ -37,7 +37,11 @@ public class StatusBar extends JPanel {
 
         this.add(statusLabel);
     }
-    
+
+    public void setText(String text) {
+        //FIXME LATER: duplicate method name setText
+        statusLabel.setText(text);
+    }
 
     public void setSize(int x, int y) {
 

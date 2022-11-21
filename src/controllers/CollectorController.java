@@ -19,22 +19,13 @@ import java.util.ArrayList;
 import models.Page;
 import views.MainWindow;
 
-/**********************KEZDÉS************************************* */
+public class CollectorController {
 
-/* 
-    FIXME Az öröklés felesleges. 
-    Ha megszüntetjük szükség lesz egy mainWindow adattagra. 
-*/
-
-public class CollectorController extends MainController {
+    MainWindow mainWindow;
 
     public CollectorController(MainWindow mainWindow) {
 
-        super(mainWindow);
-
-        this.mainWindow.exitButton.addActionListener(event ->{
-            System.exit(0);
-        });
+        this.mainWindow = mainWindow;
 
         mainWindow.pasteButton.addActionListener(event -> {
 
@@ -42,14 +33,12 @@ public class CollectorController extends MainController {
             mainWindow.urlField.paste();
         });
 
-        //Indul a szógyűjtés
         mainWindow.startButton.addActionListener(event -> {
-            // URL
+
             String URL = mainWindow.urlField.getText();
             if (URL.isEmpty()) {
                 URL = "https://index.hu";
             }
-            //Egy weblap
             Page page = new Page();
             page.setUrl(URL);
 
@@ -62,7 +51,15 @@ public class CollectorController extends MainController {
             }
 
             Integer wordCount = mainWindow.wordsModel.getSize();
-            // mainWindow.statusBar.setText("Szavak: " + wordCount.toString());
+            mainWindow.statusBar.setText("Szavak: " + wordCount.toString());
+        });
+
+        this.mainWindow.aboutButton.addActionListener(event -> {
+            mainWindow.statusBar.setText("Balogh Csenge | Szoft_II_N | 2022.11.21");
+        });
+
+        this.mainWindow.exitButton.addActionListener(event -> {
+            System.exit(0);
         });
 
     }   

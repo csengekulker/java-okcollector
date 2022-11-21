@@ -16,7 +16,6 @@ package views;
 
 import java.awt.Dimension;
 import java.awt.Insets;
-import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -41,8 +40,6 @@ public class MainWindow extends JFrame {
     public JButton aboutButton;
     public JButton exitButton;
 
-    public ArrayList<JButton> actionButtons;
-
 
     public JPanel listPanel;
     public JLabel wordsLabel;
@@ -63,7 +60,7 @@ public class MainWindow extends JFrame {
 
     public MainWindow() {
         
-        //TODO : create methods and loops
+        //TODO : create methods and loops (setpanels, setbuttons)
         appLabel = new JLabel("Szógyűjtő");
         urlField = new JTextField();        
 
@@ -130,7 +127,7 @@ public class MainWindow extends JFrame {
         this.add(bottomPanel);
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // this.setSize(300, 250);
+        // this.setSize(500, 500);
         this.pack();
         /**
          * A pack() után kell szerepeljen, mert az ablak mérete
