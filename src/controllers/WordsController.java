@@ -22,7 +22,31 @@ public class WordsController {
     
     public WordsController(MainWindow mainWindow) {
         this.mainWindow = mainWindow;
+
+        setEvents();
         
     }
+
+    private void setEvents() {
+        mainWindow.deleteButton.addActionListener(event -> deleteButtonEvent());
+        mainWindow.sortButton.addActionListener(event -> sortButtonEvent());
+        mainWindow.filterButton.addActionListener(event -> filterButtonEvent());
+        mainWindow.saveButton.addActionListener(event -> saveButtonEvent());
+    }
+
+    private void deleteButtonEvent() {
+        //set list to initial empty state, empty out wordslist
+    }
+
+    private void sortButtonEvent() {
+        //mostakkorezmi?
+    }
     
+    private void filterButtonEvent() {
+        //en csak takaritok
+    }
+
+    private void saveButtonEvent() {
+        // write to file?
+    }
 }

@@ -17,6 +17,6 @@ __WordsController__
 
 A következő gombokat kell kezelje:
   * Törlés
-  * Kisbetű
+  * Kisbetű (sortButton?)
   * Szűrés
   * Mentés

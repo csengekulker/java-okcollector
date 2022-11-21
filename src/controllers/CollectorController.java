@@ -23,36 +23,23 @@ public class CollectorController {
 
     MainWindow mainWindow;
 
+    // TODO: split into methods
+
     public CollectorController(MainWindow mainWindow) {
 
         this.mainWindow = mainWindow;
 
+        setActionEvents();
+    }   
+
+    private void setActionEvents() {
+
         mainWindow.pasteButton.addActionListener(event -> {
 
-            System.out.println("Beillesztés");
             mainWindow.urlField.paste();
         });
 
-        mainWindow.startButton.addActionListener(event -> {
-
-            String URL = mainWindow.urlField.getText();
-            if (URL.isEmpty()) {
-                URL = "https://index.hu";
-            }
-            Page page = new Page();
-            page.setUrl(URL);
-
-            ArrayList<String> words = page.getContent();
-
-            for(String word : words) {
-                if (mainWindow.wordsModel.indexOf(word) < 0) {
-                    mainWindow.wordsModel.addElement(word);
-                }                
-            }
-
-            Integer wordCount = mainWindow.wordsModel.getSize();
-            mainWindow.statusBar.setText("Szavak: " + wordCount.toString());
-        });
+        mainWindow.startButton.addActionListener(event -> startButtonEvent());
 
         this.mainWindow.aboutButton.addActionListener(event -> {
             mainWindow.statusBar.setText("Balogh Csenge | Szoft_II_N | 2022.11.21");
@@ -61,6 +48,27 @@ public class CollectorController {
         this.mainWindow.exitButton.addActionListener(event -> {
             System.exit(0);
         });
+    }
 
-    }   
+    private void startButtonEvent() {
+
+        String URL = mainWindow.urlField.getText();
+        if (URL.isEmpty()) {
+            URL = "https://index.hu";
+        }
+        Page page = new Page();
+        page.setUrl(URL);
+
+        ArrayList<String> words = page.getContent();
+
+        for(String word : words) {
+            if (mainWindow.wordsModel.indexOf(word) < 0) {
+                mainWindow.wordsModel.addElement(word);
+            }                
+        }
+
+        Integer wordCount = mainWindow.wordsModel.getSize();
+        mainWindow.statusBar.setText("Szavak: " + wordCount.toString());
+
+    }
 }
