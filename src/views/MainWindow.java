@@ -105,8 +105,7 @@ public class MainWindow extends JFrame {
         saveButton.setMinimumSize(new Dimension(110, 25));
         saveButton.setMaximumSize(new Dimension(110, 25));
         saveButton.setPreferredSize(new Dimension(110, 25));
-        
-
+    
 
         listButtonsPanel = new JPanel();
         listButtonsPanel.setLayout(new BoxLayout(listButtonsPanel, BoxLayout.PAGE_AXIS));
@@ -127,15 +126,12 @@ public class MainWindow extends JFrame {
         bottomPanel.add(listPanel);
         bottomPanel.add(listButtonsPanel);
         
-
-
         this.setLayout(new BoxLayout(getContentPane(), BoxLayout.PAGE_AXIS));
 
         this.add(appLabel);
         this.add(urlField);
         this.add(collectorPanel);
         this.add(bottomPanel);
-        
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // this.setSize(300, 250);
