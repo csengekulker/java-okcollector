@@ -18,13 +18,14 @@ public class CheckUrl {
     public static boolean isValidUrl(String url) {
 
         boolean valid = false;
+        String s = "https://";
 
         if (url.isEmpty()) {
             url = "https://index.hu";
 
             valid = true;
-        } else {
-            url = expandProtocol(url);
+        } else if (!url.contains(s)) {
+            url = s + url;
 
             valid = true;
         }
@@ -33,15 +34,7 @@ public class CheckUrl {
 
     }
 
-    public static String expandProtocol(String url) {
+    public static void expandProtocol(String url) {
 
-        String s = "https://";
-
-        if (!url.contains(s)) {
-            url = s + url;
-        }
-
-        return url;
-        
     }
 }
