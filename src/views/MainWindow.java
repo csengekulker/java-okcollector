@@ -40,7 +40,6 @@ public class MainWindow extends JFrame {
     public JButton aboutButton;
     public JButton exitButton;
 
-
     public JPanel listPanel;
     public JLabel wordsLabel;
 

@@ -45,7 +45,7 @@ public class CollectorController {
             ArrayList<String> words = page.getContent();
 
             for(String word : words) {
-                if (mainWindow.wordsModel.indexOf(word)<0) {
+                if (mainWindow.wordsModel.indexOf(word) < 0) {
                     mainWindow.wordsModel.addElement(word);
                 }                
             }
