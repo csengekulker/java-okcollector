@@ -4,8 +4,8 @@
  * Author: Sallai Andras
  * Github: https://github.com/andteki
  * -----
- * Last Modified: 2021-09-24
- * Modified By: Sallai Andras
+ * Last Modified: 2022-11-21
+ * Modified By: Balogh Csenge
  * -----
  * Copyright (c) 2021 Sallai Andras
  * 
@@ -26,20 +26,19 @@ import views.MainWindow;
     Ha megszüntetjük szükség lesz egy mainWindow adattagra. 
 */
 
-// A CollectorController osztály
 public class CollectorController extends MainController {
-    //A CollectorController osztály konstruktora    
-    public CollectorController(MainWindow mainWindow) {
-        super(mainWindow);
-        //A vágólap tartalmát beillesztjük
 
+    public CollectorController(MainWindow mainWindow) {
+
+        super(mainWindow);
 
         /**************** pasteButton ****************************/
 
         mainWindow.pasteButton.addActionListener(event -> {
-            System.out.println("beillesztés");
+
+            System.out.println("Beillesztés");
             mainWindow.urlField.paste();
-        }); // A pasteButton eseménykezelő vége
+        });
 
 
         /**************** startButton ****************************/
@@ -48,27 +47,25 @@ public class CollectorController extends MainController {
         //Indul a szógyűjtés
         mainWindow.startButton.addActionListener(event -> {
             // URL
-            String utvonal = mainWindow.urlField.getText();
-            if (utvonal.isEmpty()) {
-                utvonal = "https://index.hu";
+            String URL = mainWindow.urlField.getText();
+            if (URL.isEmpty()) {
+                URL = "https://index.hu";
             }
             //Egy weblap
             Page page = new Page();
-            page.setUrl(utvonal);
-            //Gyűjtött szavak ide kerülnek:
-            ArrayList<String> w = page.getContent();
+            page.setUrl(URL);
 
-            for(String word : w) {
+            ArrayList<String> words = page.getContent();
+
+            for(String word : words) {
                 if (mainWindow.wordsModel.indexOf(word)<0) {
                     mainWindow.wordsModel.addElement(word);
                 }                
-            } // for ciklus vége
+            }
+
             Integer wordCount = mainWindow.wordsModel.getSize();
             mainWindow.statusBar.setm("Szavak: " + wordCount.toString());
-        }); //A start eseménykezelő vége
-
-         /**************** VÉGE ****************************/
-
+        });
 
     }   
 }
