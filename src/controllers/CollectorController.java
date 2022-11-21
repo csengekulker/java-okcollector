@@ -16,6 +16,7 @@ package controllers;
 
 import java.util.ArrayList;
 
+import models.CheckUrl;
 import models.Page;
 import views.MainWindow;
 
@@ -53,11 +54,14 @@ public class CollectorController {
     private void startButtonEvent() {
 
         String URL = mainWindow.urlField.getText();
-        if (URL.isEmpty()) {
-            URL = "https://index.hu";
-        }
+
         Page page = new Page();
-        page.setUrl(URL);
+
+        if (CheckUrl.isValidUrl(URL)) {
+            page.setUrl(URL);
+        } else {
+            mainWindow.statusBar.setText("Hibás url");
+        }
 
         ArrayList<String> words = page.getContent();
 

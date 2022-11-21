@@ -15,12 +15,33 @@
 package models;
 
 public class CheckUrl {
-    // TODO: beírt URL ellenőrző
-    public void check(String url) {
+    public static boolean isValidUrl(String url) {
+
+        boolean valid = false;
+
+        if (url.isEmpty()) {
+            url = "https://index.hu";
+
+            valid = true;
+        } else {
+            url = expandProtocol(url);
+
+            valid = true;
+        }
+
+        return valid;
 
     }
-    // TODO: ha nincs https:// akkor kiegészítjük
-    public void expandProtocol() {
+
+    public static String expandProtocol(String url) {
+
+        String s = "https://";
+
+        if (!url.contains(s)) {
+            url = s + url;
+        }
+
+        return url;
         
     }
 }
