@@ -22,14 +22,7 @@ public class WordsController {
     
     public WordsController(MainWindow mainWindow) {
         this.mainWindow = mainWindow;
-        this.mainWindow.exitButton.addActionListener(event ->{
-            System.exit(0);
-        });
+        
     }
     
 }
-
-/**
- * 2021-09-24 Kezdés
- * 2021-09-26 Szemetelés
- */

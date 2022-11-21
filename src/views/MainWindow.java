@@ -16,6 +16,7 @@ package views;
 
 import java.awt.Dimension;
 import java.awt.Insets;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -40,6 +41,8 @@ public class MainWindow extends JFrame {
     public JButton aboutButton;
     public JButton exitButton;
 
+    public ArrayList<JButton> actionButtons;
+
 
     public JPanel listPanel;
     public JLabel wordsLabel;
@@ -59,11 +62,14 @@ public class MainWindow extends JFrame {
     public StatusBar statusBar;
 
     public MainWindow() {
+        
+        //TODO : create methods and loops
         appLabel = new JLabel("Szógyűjtő");
         urlField = new JTextField();        
 
         collectorPanel = new JPanel();
         collectorPanel.setLayout(new BoxLayout(collectorPanel, BoxLayout.LINE_AXIS));
+
         pasteButton = new JButton("Beillesztés");
         startButton = new JButton("Start");
         aboutButton = new JButton("Névjegy");
@@ -73,7 +79,6 @@ public class MainWindow extends JFrame {
         this.collectorPanel.add(startButton);
         this.collectorPanel.add(aboutButton);
         this.collectorPanel.add(exitButton);
-
 
         listPanel = new JPanel();
         listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.PAGE_AXIS));
@@ -86,27 +91,18 @@ public class MainWindow extends JFrame {
         listPanel.add(wordsScrollPane);
 
         deleteButton = new JButton("Törlés");
-        deleteButton.setMinimumSize(new Dimension(110, 25));
-        deleteButton.setMaximumSize(new Dimension(110, 25));
-        deleteButton.setPreferredSize(new Dimension(110, 25));
+        setButtonSize(deleteButton);
         deleteButton.setMargin(new Insets(20, 20, 20, 20));
 
         lowercaseButton = new JButton("Kisbetű");
-        lowercaseButton.setMinimumSize(new Dimension(110, 25));
-        lowercaseButton.setMaximumSize(new Dimension(110, 25));
-        lowercaseButton.setPreferredSize(new Dimension(110, 25));
+        setButtonSize(lowercaseButton);
         
         filterButton = new JButton("Szűrés");
-        filterButton.setMinimumSize(new Dimension(110, 25));
-        filterButton.setMaximumSize(new Dimension(110, 25));
-        filterButton.setPreferredSize(new Dimension(110, 25));
+        setButtonSize(filterButton);
 
         saveButton = new JButton("Mentés");
-        saveButton.setMinimumSize(new Dimension(110, 25));
-        saveButton.setMaximumSize(new Dimension(110, 25));
-        saveButton.setPreferredSize(new Dimension(110, 25));
+        setButtonSize(saveButton);
     
-
         listButtonsPanel = new JPanel();
         listButtonsPanel.setLayout(new BoxLayout(listButtonsPanel, BoxLayout.PAGE_AXIS));
         listButtonsPanel.add(Box.createVerticalGlue());
@@ -144,5 +140,13 @@ public class MainWindow extends JFrame {
         this.add(statusBar);
 
     }
-    
+
+    private void setButtonSize (JButton button) {
+
+        button.setMinimumSize(new Dimension(110, 25));
+        button.setMaximumSize(new Dimension(110, 25));
+        button.setPreferredSize(new Dimension(110, 25));
+        
+    }
+ 
 }

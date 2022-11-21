@@ -32,17 +32,15 @@ public class CollectorController extends MainController {
 
         super(mainWindow);
 
-        /**************** pasteButton ****************************/
+        this.mainWindow.exitButton.addActionListener(event ->{
+            System.exit(0);
+        });
 
         mainWindow.pasteButton.addActionListener(event -> {
 
             System.out.println("Beillesztés");
             mainWindow.urlField.paste();
         });
-
-
-        /**************** startButton ****************************/
-
 
         //Indul a szógyűjtés
         mainWindow.startButton.addActionListener(event -> {
@@ -64,7 +62,7 @@ public class CollectorController extends MainController {
             }
 
             Integer wordCount = mainWindow.wordsModel.getSize();
-            mainWindow.statusBar.setm("Szavak: " + wordCount.toString());
+            // mainWindow.statusBar.setText("Szavak: " + wordCount.toString());
         });
 
     }   

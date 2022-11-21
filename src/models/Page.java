@@ -24,6 +24,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 public class Page {
+    
     public String url;
 
     public ArrayList<String> getContent() {

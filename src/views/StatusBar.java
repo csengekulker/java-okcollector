@@ -29,19 +29,18 @@ public class StatusBar extends JPanel {
     public StatusBar(int width) {   
 
         setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
-        
-        size(width, 25);
-
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+
+        setSize(width, 25);
+
         statusLabel = new JLabel("Kész");
 
         this.add(statusLabel);
     }
     
-    //Ez állítja be a méretét státuszsornak
-    public void size(int x, int y) {
-        // A setMaximumSize() függvény csak Demension osztály képes fogadni
-        // Nem tudtak jobbat?
+
+    public void setSize(int x, int y) {
+
         setMaximumSize(new Dimension(x, y));
         setMinimumSize(new Dimension(x, y));
         setPreferredSize(new Dimension(x, y));
